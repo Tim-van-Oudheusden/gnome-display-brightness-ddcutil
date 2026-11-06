@@ -15,8 +15,8 @@ Brightness sliders for your external monitors, right in GNOME Shell
 </div>
 
 <p align="center">
-  <img src="data/screenshots/1-system-menu.png" width="405" alt="The preferences window with Show Display Name on and Button Location set to System Menu, beside the system menu showing a brightness slider for each of two monitors, HP and ACER, under the volume slider">
-  <img src="data/screenshots/2-top-bar.png" width="405" alt="The preferences window with the All slider, value labels and display names on and Button Location set to Top Bar, beside the extension's own top bar menu: sliders for All, ACER and HP with their values 10, 10 and 24, then Settings and Reload">
+  <img src="data/screenshots/1-quick-settings.png" width="405" alt="Quick Settings in GNOME 51 with a brightness slider for each of two monitors, MAG 271QPX E2 and Q24G2, above the Wired and Wi-Fi buttons, beside the extension's preferences window with Show Display Name on and Button Location set to System Menu">
+  <img src="data/screenshots/2-top-bar.png" width="405" alt="The extension's own top bar menu with sliders for All, Q24G2 and MAG 271QPX E2, each at 100, then Settings and Reload, beside the preferences window with the All slider, value labels and display names on and Button Location set to Top Bar">
 </p>
 
 ## Status
@@ -24,8 +24,7 @@ Brightness sliders for your external monitors, right in GNOME Shell
 Maintained fork of [Brightness control using ddcutil](https://github.com/daitj/gnome-display-brightness-ddcutil) by
 [@daitj](https://github.com/daitj), updated for GNOME 51. It has its own UUID,
 `display-brightness-ddcutil@tim-van-oudheusden.github.io`, and is not on extensions.gnome.org yet: install it from
-source or from a CI build ([Installing](#installing)). The screenshots predate Quick Settings and show the extension's
-former name; the sliders and preferences work the same way.
+source or from a CI build ([Installing](#installing)).
 
 ## About
 
