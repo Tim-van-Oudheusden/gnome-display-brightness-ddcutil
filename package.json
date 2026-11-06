@@ -3,7 +3,7 @@
   "private": true,
   "description": "Development tooling only; the extension itself has no npm dependencies.",
   "devDependencies": {
-    "@eslint/js": "^9.39.5",
+    "@eslint/js": "^10.0.1",
     "eslint": "^9.39.5"
   },
   "type": "module",
