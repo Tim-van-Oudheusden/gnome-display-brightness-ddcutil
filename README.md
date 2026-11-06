@@ -58,6 +58,9 @@ top bar.
 
 ## Setting up ddcutil
 
+If `ddcutil detect` already lists your monitors without `sudo`, skip to the check at the end: many distributions'
+ddcutil packages give the logged-in user access to `/dev/i2c-*` through udev's `uaccess` tag.
+
 1. Install `ddcutil` from your distribution.
 2. Load the `i2c-dev` kernel module now, and at every boot:
 
