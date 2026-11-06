@@ -17,7 +17,7 @@ jobs:
     name: ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v4
         with:
@@ -38,7 +38,7 @@ jobs:
       - name: Install GNOME Shell, GLib and gettext
         run: dnf install -y --setopt=install_weak_deps=False gnome-shell glib2 gettext make
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Check the schema and the translations
         run: make check
