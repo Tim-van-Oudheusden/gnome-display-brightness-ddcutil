@@ -4,7 +4,7 @@ import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import {gettext as _, ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-import * as ShortcutWidget from './shortcut.js';
+import './preferences/shortcutWidget.js';
 
 const PrefsWidget = GObject.registerClass({
     GTypeName: 'PrefsWidget',
@@ -35,8 +35,8 @@ const PrefsWidget = GObject.registerClass({
         'verbose_debugging_row',
     ],
 }, class PrefsWidget extends Adw.PreferencesPage {
-    _init(settings, params = {}) {
-        super._init(params);
+    constructor(settings, params = {}) {
+        super(params);
         this.settings = settings;
         this.settings.bind(
             'show-all-slider',
@@ -197,8 +197,8 @@ const PrefsWidget = GObject.registerClass({
         const vcpList = this.getVCPList()
         this._vcp_code_row_6b.sensitive = true
         this._vcp_code_row_10.sensitive = true
-        if(vcpList.length == 1){
-            if(vcpList[0] == "10"){
+        if(vcpList.length === 1){
+            if(vcpList[0] === "10"){
                 this._vcp_code_row_10.sensitive = false
             }else{
                 this._vcp_code_row_6b.sensitive = false

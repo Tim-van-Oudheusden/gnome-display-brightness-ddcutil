@@ -4,11 +4,11 @@ import GObject from 'gi://GObject';
 import Gtk from 'gi://Gtk';
 import {gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-import * as Convenience from './conveniencePref.js';
+import * as Keybindings from './keybindings.js';
 
-const ShortcutWidget = GObject.registerClass({
+export const ShortcutWidget = GObject.registerClass({
     GTypeName: 'ShortcutWidget',
-    Template: GLib.Uri.resolve_relative(import.meta.url, './ui/shortcut.ui', GLib.UriFlags.NONE),
+    Template: GLib.Uri.resolve_relative(import.meta.url, '../ui/shortcutWidget.ui', GLib.UriFlags.NONE),
     InternalChildren: [
         'set_button',
         'shortcut_label',
@@ -70,8 +70,8 @@ const ShortcutWidget = GObject.registerClass({
         }
 
         if (
-            !Convenience.isBindingValid({mask, keycode, keyval}) ||
-            !Convenience.isAccelValid({mask, keyval})
+            !Keybindings.isBindingValid({mask, keycode, keyval}) ||
+            !Keybindings.isAccelValid({mask, keyval})
         ) {
             this._shortcut_info_label.set_text(_('Reserved or invalid binding'));
             return Gdk.EVENT_STOP;

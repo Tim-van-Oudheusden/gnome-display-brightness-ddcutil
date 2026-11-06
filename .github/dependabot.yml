@@ -1,0 +1,23 @@
+# Weekly update PRs for the workflow actions and the ESLint tooling.
+# The extension itself has no npm dependencies; package.json only holds the linter.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      github-actions:
+        update-types: [minor, patch]
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: build(deps)
+    groups:
+      eslint:
+        update-types: [minor, patch]

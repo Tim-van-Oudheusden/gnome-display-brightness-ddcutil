@@ -1,0 +1,12 @@
+{
+  "name": "Display Brightness (ddcutil)",
+  "description": "Brightness sliders for every external monitor that ddcutil detects, in Quick Settings or the top bar.\n\nRequires ddcutil and access to the /dev/i2c devices. Setup instructions: https://github.com/Tim-van-Oudheusden/gnome-display-brightness-ddcutil#setting-up-ddcutil\n\nA fork of Brightness control using ddcutil by daitj.",
+  "uuid": "display-brightness-ddcutil@tim-van-oudheusden.github.io",
+  "url": "https://github.com/Tim-van-Oudheusden/gnome-display-brightness-ddcutil",
+  "settings-schema": "org.gnome.shell.extensions.display-brightness-ddcutil",
+  "gettext-domain": "display-brightness-ddcutil",
+  "shell-version": [
+    "50",
+    "51"
+  ]
+}

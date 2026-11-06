@@ -1,0 +1,213 @@
+# German Translation.
+# Copyright (C) 2021
+# This file is distributed under the same license as the gnome-display-brightness-ddcutil package.
+# Patrick M. <65464529+p-mng@users.noreply.github.com>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-06 16:24+0100\n"
+"PO-Revision-Date: 2022-02-13 09:53+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: src/extension.js:118
+msgid "Initializing"
+msgstr "Initialisiere"
+
+#: src/extension.js:289
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/extension.js:298
+msgid "Reload"
+msgstr "Neu laden"
+
+#: src/extension.js:315 src/extension.js:319
+msgid "All"
+msgstr "Alle"
+
+#: src/extension.js:588
+msgid "Internal"
+msgstr ""
+
+#: src/prefs.js:224
+msgid "Submenu mode cannot be enabled in TopBar mode "
+msgstr ""
+
+#: src/prefs.js:228
+#, fuzzy
+msgid "Need to enable (\"All\" slider)"
+msgstr "Gemeinsamen Schieberegler anzeigen"
+
+#: src/prefs.js:230
+#, fuzzy
+msgid "Need to disable (Only \"All\" slider)"
+msgstr "Nur gemeinsame Regler anzeigen"
+
+#: src/preferences/shortcutWidget.js:36 src/ui/shortcutWidget.ui:82
+msgid "Enter the new shortcut"
+msgstr ""
+
+#: src/preferences/shortcutWidget.js:76
+msgid "Reserved or invalid binding"
+msgstr ""
+
+#: src/ui/prefs.ui:6
+msgid "General"
+msgstr "Allgemein"
+
+#: src/ui/prefs.ui:9
+msgid "Enable \"All\" Slider"
+msgstr "Gemeinsamen Schieberegler anzeigen"
+
+#: src/ui/prefs.ui:14
+#, fuzzy
+msgid "Enable \"Internal\" Slider"
+msgstr "Gemeinsamen Schieberegler anzeigen"
+
+#: src/ui/prefs.ui:19
+#, fuzzy
+msgid "Use Only \"All\" Slider"
+msgstr "Nur gemeinsame Regler anzeigen"
+
+#: src/ui/prefs.ui:26
+msgid "Show Value Label"
+msgstr "Aktuellen Wert anzeigen"
+
+#: src/ui/prefs.ui:31
+msgid "Show Display Name"
+msgstr "Bildschirmname anzeigen"
+
+#: src/ui/prefs.ui:36
+msgid "Show OSD"
+msgstr ""
+
+#: src/ui/prefs.ui:41
+msgid "Button Location"
+msgstr "Position der Schaltfläche"
+
+#: src/ui/prefs.ui:48
+msgid "Use Quick Settings Sub Menu"
+msgstr ""
+
+#: src/ui/prefs.ui:53
+msgid "Hide System Indicator"
+msgstr "Systemindikator verstecken"
+
+#: src/ui/prefs.ui:58
+#, fuzzy
+msgid "Position in System Indicator"
+msgstr "Systemindikator verstecken"
+
+#: src/ui/prefs.ui:66
+msgid "Position in System Menu"
+msgstr "Position im System-Menü"
+
+#: src/ui/prefs.ui:76
+msgid "Keyboard Shortcuts"
+msgstr "Tastaturkurzbefehle"
+
+#: src/ui/prefs.ui:79
+msgid "Increase Brightness"
+msgstr "Helligkeit erhöhen"
+
+#: src/ui/prefs.ui:89
+msgid "Decrease Brightness"
+msgstr "Helligkeit verringern"
+
+#: src/ui/prefs.ui:99
+msgid "Step Change %"
+msgstr ""
+
+#: src/ui/prefs.ui:109
+msgid "Advanced Settings"
+msgstr "Erweiterte Einstellungen"
+
+#: src/ui/prefs.ui:112
+msgid "`ddcutil` Binary Path"
+msgstr ""
+
+#: src/ui/prefs.ui:118
+msgid "`ddcutil` Additional Arguments"
+msgstr ""
+
+#: src/ui/prefs.ui:124
+msgid "`ddcutil` Sleep Multiplier ms"
+msgstr ""
+
+#: src/ui/prefs.ui:132
+msgid "VCP codes in use"
+msgstr ""
+
+#: src/ui/prefs.ui:137
+#, fuzzy
+msgid "Brightness"
+msgstr "Helligkeit erhöhen"
+
+#: src/ui/prefs.ui:143
+msgid "White Backlight"
+msgstr ""
+
+#: src/ui/prefs.ui:150
+#, fuzzy
+msgid "Allow Zero Brightness"
+msgstr "Vollständige Abdunkelung erlauben"
+
+#: src/ui/prefs.ui:155
+#, fuzzy
+msgid "Disable Display State Check"
+msgstr "Status-Überprüfung deaktivieren"
+
+#: src/ui/prefs.ui:156
+msgid ""
+"Disables the check for the display power state before changing brightness, "
+"might help in detecting more displays"
+msgstr ""
+
+#: src/ui/prefs.ui:161
+msgid "Verbose debugging"
+msgstr ""
+
+#: src/ui/prefs.ui:169
+msgid "Top Bar"
+msgstr "Obere Leiste"
+
+#: src/ui/prefs.ui:170
+msgid "System Menu"
+msgstr "System-Menü"
+
+#: src/ui/shortcutWidget.ui:11
+#, fuzzy
+msgid "Set Shortcut…"
+msgstr "Tastaturkurzbefehle"
+
+#: src/ui/shortcutWidget.ui:65
+msgid "Add Custom Shortcut"
+msgstr ""
+
+#: src/ui/shortcutWidget.ui:93
+msgid "Press Esc to cancel the keyboard shortcut."
+msgstr ""
+
+#, fuzzy
+#~ msgid "DDC VCP Brightness Ids"
+#~ msgstr "Helligkeit erhöhen"
+
+#, fuzzy
+#~ msgid "Brightness (10)"
+#~ msgstr "Helligkeit erhöhen"
+
+#, fuzzy
+#~ msgid "servings"
+#~ msgstr "Einstellungen"
+
+#~ msgid "Apply"
+#~ msgstr "Anwenden"

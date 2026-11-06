@@ -1,0 +1,205 @@
+# Spanish translation.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Óscar Fernández Díaz <oscfdezdz@tuta.io>, 2021-2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-display-brightness-ddcutil\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-06 16:24+0100\n"
+"PO-Revision-Date: 2023-11-26 12:05+0100\n"
+"Last-Translator: Óscar Fernández Díaz <oscfdezdz@tuta.io>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 45.3\n"
+
+#: src/extension.js:118
+msgid "Initializing"
+msgstr "Inicializando"
+
+#: src/extension.js:289
+msgid "Settings"
+msgstr "Configuración"
+
+#: src/extension.js:298
+msgid "Reload"
+msgstr "Recargar"
+
+#: src/extension.js:315 src/extension.js:319
+msgid "All"
+msgstr "Todos"
+
+#: src/extension.js:588
+msgid "Internal"
+msgstr ""
+
+#: src/prefs.js:224
+msgid "Submenu mode cannot be enabled in TopBar mode "
+msgstr ""
+
+#: src/prefs.js:228
+#, fuzzy
+msgid "Need to enable (\"All\" slider)"
+msgstr "Activar el deslizador para \"Todos\""
+
+#: src/prefs.js:230
+#, fuzzy
+msgid "Need to disable (Only \"All\" slider)"
+msgstr "Usar solo el deslizador \"Todos\""
+
+#: src/preferences/shortcutWidget.js:36 src/ui/shortcutWidget.ui:82
+msgid "Enter the new shortcut"
+msgstr "Introduzca el atajo nuevo"
+
+#: src/preferences/shortcutWidget.js:76
+msgid "Reserved or invalid binding"
+msgstr "Asignación reservada o no válida"
+
+#: src/ui/prefs.ui:6
+msgid "General"
+msgstr "General"
+
+#: src/ui/prefs.ui:9
+msgid "Enable \"All\" Slider"
+msgstr "Activar el deslizador para \"Todos\""
+
+#: src/ui/prefs.ui:14
+#, fuzzy
+msgid "Enable \"Internal\" Slider"
+msgstr "Activar el deslizador para \"Todos\""
+
+#: src/ui/prefs.ui:19
+msgid "Use Only \"All\" Slider"
+msgstr "Usar solo el deslizador \"Todos\""
+
+#: src/ui/prefs.ui:26
+msgid "Show Value Label"
+msgstr "Mostrar la etiqueta del valor"
+
+#: src/ui/prefs.ui:31
+msgid "Show Display Name"
+msgstr "Mostrar nombre de la pantalla"
+
+#: src/ui/prefs.ui:36
+msgid "Show OSD"
+msgstr "Mostrar OSD"
+
+#: src/ui/prefs.ui:41
+msgid "Button Location"
+msgstr "Ubicación del botón"
+
+#: src/ui/prefs.ui:48
+msgid "Use Quick Settings Sub Menu"
+msgstr ""
+
+#: src/ui/prefs.ui:53
+msgid "Hide System Indicator"
+msgstr "Ocultar el indicador del sistema"
+
+#: src/ui/prefs.ui:58
+msgid "Position in System Indicator"
+msgstr "Posición en el indicador del sistema"
+
+#: src/ui/prefs.ui:66
+msgid "Position in System Menu"
+msgstr "Posición en el menú del sistema"
+
+#: src/ui/prefs.ui:76
+msgid "Keyboard Shortcuts"
+msgstr "Atajos del teclado"
+
+#: src/ui/prefs.ui:79
+msgid "Increase Brightness"
+msgstr "Aumentar brillo"
+
+#: src/ui/prefs.ui:89
+msgid "Decrease Brightness"
+msgstr "Reducir brillo"
+
+#: src/ui/prefs.ui:99
+msgid "Step Change %"
+msgstr "Porcentaje de variación"
+
+#: src/ui/prefs.ui:109
+msgid "Advanced Settings"
+msgstr "Configuración avanzada"
+
+#: src/ui/prefs.ui:112
+msgid "`ddcutil` Binary Path"
+msgstr "Ruta del binario de `ddcutil`"
+
+#: src/ui/prefs.ui:118
+msgid "`ddcutil` Additional Arguments"
+msgstr "Argumentos adicionales de `ddcutil`"
+
+#: src/ui/prefs.ui:124
+msgid "`ddcutil` Sleep Multiplier ms"
+msgstr "Multiplicador de espera ms de `ddcutil`"
+
+#: src/ui/prefs.ui:132
+msgid "VCP codes in use"
+msgstr ""
+
+#: src/ui/prefs.ui:137
+#, fuzzy
+msgid "Brightness"
+msgstr "Aumentar brillo"
+
+#: src/ui/prefs.ui:143
+msgid "White Backlight"
+msgstr ""
+
+#: src/ui/prefs.ui:150
+msgid "Allow Zero Brightness"
+msgstr "Permitir brillo cero"
+
+#: src/ui/prefs.ui:155
+msgid "Disable Display State Check"
+msgstr "Desactivar la comprobación del estado de la pantalla"
+
+#: src/ui/prefs.ui:156
+msgid ""
+"Disables the check for the display power state before changing brightness, "
+"might help in detecting more displays"
+msgstr ""
+
+#: src/ui/prefs.ui:161
+msgid "Verbose debugging"
+msgstr "Depuración detallada"
+
+#: src/ui/prefs.ui:169
+msgid "Top Bar"
+msgstr "Barra superior"
+
+#: src/ui/prefs.ui:170
+msgid "System Menu"
+msgstr "Menú del sistema"
+
+#: src/ui/shortcutWidget.ui:11
+msgid "Set Shortcut…"
+msgstr "Establecer atajo…"
+
+#: src/ui/shortcutWidget.ui:65
+msgid "Add Custom Shortcut"
+msgstr "Añadir un atajo personalizado"
+
+#: src/ui/shortcutWidget.ui:93
+msgid "Press Esc to cancel the keyboard shortcut."
+msgstr "Pulse Esc para cancelar el atajo del teclado."
+
+#, fuzzy
+#~ msgid "DDC VCP Brightness Ids"
+#~ msgstr "Aumentar brillo"
+
+#, fuzzy
+#~ msgid "Brightness (10)"
+#~ msgstr "Aumentar brillo"
+
+#, fuzzy
+#~ msgid "servings"
+#~ msgstr "Configuración"

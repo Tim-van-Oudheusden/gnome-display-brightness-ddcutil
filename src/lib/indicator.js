@@ -10,29 +10,12 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 import {Slider} from 'resource:///org/gnome/shell/ui/slider.js';
 
-import * as Convenience from './convenienceExt.js';
+import * as Utils from './utils.js';
 
 const {
     brightnessLog,
     sliderValuePercentFixed
-} = Convenience;
-
-function decycle(obj, stack = []) {
-    if (!obj || typeof obj !== 'object')
-        return obj;
-
-    if (stack.includes(obj))
-        return null;
-
-    const s = stack.concat([obj]);
-
-    return Array.isArray(obj)
-        ? obj.map(x => decycle(x, s))
-        : Object.fromEntries(
-            Object.entries(obj)
-                .map(([k, v]) => [k, decycle(v, s)]));
-}
-
+} = Utils;
 
 function sliderKeyUpDownEvent(actor, settings, direction) {
     const step = (settings.get_double('step-change-keyboard') / 100) * direction
@@ -99,18 +82,18 @@ export const StatusAreaBrightnessMenu = GObject.registerClass({
     GType: 'StatusAreaBrightnessMenu',
     Signals: {'value-up': {}, 'value-down': {}},
 }, class StatusAreaBrightnessMenu extends PanelMenu.Button {
-    _init(settings) {
+    constructor(settings) {
+        super(0.0);
         this._sliders = [];
-        super._init(0.0);
         this._icon = new St.Icon({icon_name: 'display-brightness-symbolic', style_class: 'system-status-icon'});
         this._iconVisible = true;
         this.add_child(this._icon);
         addSliderScrollController(this);
-        this.connect('value-up', (actor, event) => {
+        this.connect('value-up', actor => {
             sliderKeyUpDownEvent(actor, settings, 1);
             return Clutter.EVENT_STOP;
         });
-        this.connect('value-down', (actor, event) => {
+        this.connect('value-down', actor => {
             sliderKeyUpDownEvent(actor, settings, -1);
             return Clutter.EVENT_STOP;
         });
@@ -142,7 +125,7 @@ export const StatusAreaBrightnessMenu = GObject.registerClass({
         this.menu.removeAll();
     }
 
-    addMenuItem(item, position = null) {
+    addMenuItem(item, _position = null) {
         this.menu.addMenuItem(item);
     }
 });
@@ -151,18 +134,18 @@ export const SystemMenuBrightnessMenu = GObject.registerClass({
     GType: 'SystemMenuBrightnessMenu',
     Signals: {'value-up': {}, 'value-down': {}},
 }, class SystemMenuBrightnessMenu extends QuickSettings.SystemIndicator {
-    _init(settings) {
-        super._init();
+    constructor(settings) {
+        super();
         this._sliders = [];
         this._indicator = this._addIndicator();
         this._indicator.icon_name = 'display-brightness-symbolic';
         this._indicator.visible = !settings.get_boolean('hide-system-indicator');
         addSliderScrollController(this);
-        this.connect('value-up', (actor, event) => {
+        this.connect('value-up', actor => {
             sliderKeyUpDownEvent(actor, settings, 1);
             return Clutter.EVENT_STOP;
         });
-        this.connect('value-down', (actor, event) => {
+        this.connect('value-down', actor => {
             sliderKeyUpDownEvent(actor, settings, -1);
             return Clutter.EVENT_STOP;
         });
@@ -183,7 +166,7 @@ export const SystemMenuBrightnessMenu = GObject.registerClass({
         this.quickSettingsItems = [];
     }
 
-    addMenuItem(item, position = null) {
+    addMenuItem(item, _position = null) {
         this.quickSettingsItems.push(item);
     }
 
@@ -208,12 +191,12 @@ export const SystemMenuBrightnessMenu = GObject.registerClass({
 export const SingleMonitorMenuItem = GObject.registerClass({
     GType: 'SingleMonitorMenuItem',
 }, class SingleMonitorMenuItem extends PopupMenu.PopupBaseMenuItem {
-    _init(settings, icon, name, slider, label) {
-        super._init();
-        if (icon != null)
+    constructor(settings, icon, name, slider, label) {
+        super();
+        if (icon)
             this.add_actor(icon);
 
-        if (name != null && settings.get_boolean('show-display-name'))
+        if (name && settings.get_boolean('show-display-name'))
             this.add_child(name);
 
         this.add_child(slider);
@@ -384,8 +367,8 @@ export const SingleMonitorSliderAndValueForQuickSettings = GObject.registerClass
         },
     },
 }, class SingleMonitorSliderAndValueForQuickSettings extends QuickSettings.QuickSlider {
-    _init(params) {
-        super._init({
+    constructor(params) {
+        super({
             ...params,
             iconName: 'display-brightness-symbolic',
         });

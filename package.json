@@ -1,0 +1,13 @@
+{
+  "name": "gnome-display-brightness-ddcutil",
+  "private": true,
+  "description": "Development tooling only; the extension itself has no npm dependencies.",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5"
+  },
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  }
+}

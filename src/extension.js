@@ -27,8 +27,8 @@ import { Extension, gettext as _ } from 'resource:///org/gnome/shell/extensions/
 
 import { loadInterfaceXML } from 'resource:///org/gnome/shell/misc/fileUtils.js';
 
-import * as Convenience from './convenienceExt.js';
-import * as Indicator from './indicator.js';
+import * as Utils from './lib/utils.js';
+import * as Indicator from './lib/indicator.js';
 
 // for ui stuff of this extension
 const QuickSettingsPanelMenuButton = Main.panel.statusArea.quickSettings;
@@ -46,7 +46,7 @@ const {
     spawnWithCallback,
     getVCPInfoAsArray,
     isNullOrWhitespace
-} = Convenience;
+} = Utils;
 
 /*
     lowest possible value for brightness
@@ -205,7 +205,7 @@ export default class DDCUtilBrightnessControlExtension extends Extension {
         const writer = async (ondone) => {
             const cmd = `${ddcutilPath} setvcp ${display.vcp} ${newBrightness} --bus ${display.bus} --sleep-multiplier ${sleepMultiplier} ${ddcutilAdditionalArgs}`.split(" ").filter(x => x !== "");
             brightnessLog(this.settings, `async ${cmd.join(" ")}`);
-            await spawnWithCallback(this.settings, cmd, async (result) => {if (ondone) {await ondone();}});
+            await spawnWithCallback(this.settings, cmd, async () => {if (ondone) {await ondone();}});
         };
         brightnessLog(this.settings, `display ${display.name}, current: ${display.current} => ${newValue / 100}, new brightness: ${newBrightness}, new value: ${newValue}`);
         display.current = newValue / 100;
@@ -296,7 +296,7 @@ export default class DDCUtilBrightnessControlExtension extends Extension {
             mainMenuButton.getStoredSliders()[0].menu.addMenuItem(settingsItem)
         }
         const reloadItem = new PopupMenu.PopupMenuItem(_('Reload'));
-        reloadItem.connect('activate', event => {
+        reloadItem.connect('activate', () => {
             this.reloadExtension();
         });
         if (this.settings.get_int('button-location') === 0) {
@@ -428,7 +428,7 @@ export default class DDCUtilBrightnessControlExtension extends Extension {
 
             this.addSettingsItem();
             if (this.settings.get_int('button-location') === 0) {
-
+                /* top bar: the items were added to the panel menu above */
             } else {
                 /* in case of quick settings we need to add items after all the sliders were created */
 
@@ -614,6 +614,8 @@ export default class DDCUtilBrightnessControlExtension extends Extension {
                 }
 
                 if (!isNullOrWhitespace(displayBus) && !isNullOrWhitespace(displayName)) {
+                    // Probe one bus at a time: ddcutil can't talk to daisy-chained displays in parallel.
+                    // eslint-disable-next-line no-await-in-loop
                     await this.addDisplayToPanelIfItIsOn(displayBus, displayName);
 
                     displayBus = null;
@@ -651,14 +653,14 @@ export default class DDCUtilBrightnessControlExtension extends Extension {
         const cancellable = new Gio.Cancellable();
         file.load_contents_async(cancellable, async (source, result) => {
             try {
-                const [ok, contents, etagOut] = source.load_contents_finish(result);
+                const [, contents] = source.load_contents_finish(result);
                 const decoder = new TextDecoder('utf-8');
                 await this.parseDisplaysInfoAndAddToPanel(decoder.decode(contents));
-            } catch (e) {
+            } catch {
                 brightnessLog(this.settings, `${ddcutilDetectCacheFile} cache file reading error`);
             }
         });
-        spawnWithCallback(this.settings, ['cat', ddcutilDetectCacheFile], stdout => { });
+        spawnWithCallback(this.settings, ['cat', ddcutilDetectCacheFile], () => { });
     }
 
     settingsToJSObject() {

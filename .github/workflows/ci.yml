@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - run: npx eslint .
+
+  build:
+    name: Schema, translations and bundle
+    runs-on: ubuntu-latest
+    # Fedora 45 ships GNOME Shell 51, the newest release the extension supports,
+    # and with it the gnome-extensions tool that packs the bundle.
+    container: registry.fedoraproject.org/fedora:45
+    steps:
+      - name: Install GNOME Shell, GLib and gettext
+        run: dnf install -y --setopt=install_weak_deps=False gnome-shell glib2 gettext make
+
+      - uses: actions/checkout@v4
+
+      - name: Check the schema and the translations
+        run: make check
+
+      - name: Pack the extension
+        run: make build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shell-extension
+          path: dist/*.shell-extension.zip
+          if-no-files-found: error

@@ -1,0 +1,49 @@
+name: Bug report
+description: A display is missing, a slider does nothing, or the extension misbehaves
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before filing, check that `ddcutil getvcp 10` works for your user without `sudo`
+        ([Setting up ddcutil](https://github.com/Tim-van-Oudheusden/gnome-display-brightness-ddcutil#setting-up-ddcutil)),
+        and delete the cache file `~/.cache/ddcutil_detect` if it exists, then reload the extension.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happens
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: System
+      description: Distribution, GNOME Shell version, ddcutil version and how the monitors are connected (direct, dock, daisy chain).
+      placeholder: |
+        Distribution: Fedora 45
+        GNOME Shell: 51.1 (gnome-shell --version)
+        ddcutil: 2.2.1 (ddcutil --version)
+        Connection: two monitors over DisplayPort, directly to the GPU
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: detect
+    attributes:
+      label: ddcutil detect
+      description: Output of `ddcutil detect --brief`.
+      render: text
+  - type: textarea
+    id: logs
+    attributes:
+      label: Journal
+      description: |
+        Turn on **Verbose debugging** under Advanced Settings in the extension's preferences, reload the extension,
+        reproduce the problem, then paste the output of `journalctl --no-pager -b /usr/bin/gnome-shell | grep display-brightness-ddcutil`.
+      render: text
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Drag images here.

@@ -1,0 +1,5 @@
+src/extension.js
+src/prefs.js
+src/preferences/shortcutWidget.js
+src/ui/prefs.ui
+src/ui/shortcutWidget.ui
